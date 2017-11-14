@@ -1,0 +1,13 @@
+<template>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</template>
+<script>
+  let link = document.importNode(document.currentScript.ownerDocument.querySelector('template').content,true).querySelector('link')
+  let relativPath = link.getAttribute('href')
+  let absoluteUrlFromThisFile = document.currentScript.ownerDocument.URL.replace('import.html','')
+  link.setAttribute('href',relativPath.replace('./',absoluteUrlFromThisFile))
+  window.document.head.appendChild(link)
+</script>
+
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
